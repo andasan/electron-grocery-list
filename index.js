@@ -21,8 +21,8 @@ app.on('ready', () => {
 
 function createAddWindow(){
     addWindow = new BrowserWindow({
-        width: 300,
-        height: 200,
+        width: 400,
+        height: 230,
         title: 'Add New Item',
         webPreferences: {
             nodeIntegration: true

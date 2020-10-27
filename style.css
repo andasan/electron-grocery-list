@@ -42,6 +42,18 @@
     font-size: 12px;
 }
 
+input {
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 100%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
 #upload {
     display: inline-block;
     position: absolute;
@@ -67,15 +79,21 @@
 }
 
 body {
-    background: #76b852;
+    background: #5876da;
     /* fallback for old browsers */
-    background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-    background: -moz-linear-gradient(right, #76b852, #8DC26F);
-    background: -o-linear-gradient(right, #76b852, #8DC26F);
-    background: linear-gradient(to left, #76b852, #8DC26F);
+    background: -webkit-linear-gradient(right, #5876da, #2f3f74);
+    background: -moz-linear-gradient(right, #5876da, #2f3f74);
+    background: -o-linear-gradient(right, #5876da, #2f3f74);
+    background: linear-gradient(to left, #5876da, #2f3f74);
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+}
+
+.add-page{
+  width: 360px;
+  padding: 8% 0 0;
+  margin: auto;
 }
 
 .lds-roller {
@@ -162,3 +180,47 @@ body {
       transform: rotate(360deg);
     }
   }
+
+.pure-tree {
+  text-align: left;
+  display: block;
+}
+.pure-tree.main-tree {
+  width: 30em;
+  display: inline-block;
+}
+.pure-tree:not(.main-tree) {
+  padding-left: 1.2em;
+}
+.pure-tree:not(.main-tree) li {
+  overflow: hidden;
+  height: 0;
+  display: block;
+}
+.pure-tree li {
+  display: block;
+  cursor: pointer;
+  color: #717780;
+  border-bottom: 1px dashed #B0B9C5;
+  padding: 1.125em 1.125em 1.125em 0;
+}
+.pure-tree li:hover {
+  color: #434a58;
+  border-bottom-color: #434a58;
+}
+.pure-tree .pure-tree_link a {
+  padding: 1.5em 1.125em 0.75em 0;
+  display: block;
+  border-radius: 0.2em;
+  color: #717780;
+  text-decoration: none;
+}
+.pure-tree .pure-tree_link a:hover {
+  color: #434a58;
+}
+.pure-tree.nested {
+  padding-left: 1.7em;
+}
+.pure-tree [type=checkbox] {
+  display: none;
+}
