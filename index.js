@@ -12,6 +12,7 @@ app.on('ready', () => {
         }
     });
     mainWindow.loadURL(`file://${__dirname}/main.html`);
+    mainWindow.on('closed', () => app.quit());
 
     const mainMenu = Menu.buildFromTemplate(menuTemplate);
     Menu.setApplicationMenu(mainMenu);
@@ -19,17 +20,25 @@ app.on('ready', () => {
 
 function createAddWindow(){
     addWindow = new BrowserWindow({
-        height: 250,
+        width: 300,
+        height: 200,
+        title: 'Add New Item',
         webPreferences: {
             nodeIntegration: true
         }
-    })
+    });
+    addWindow.loadURL(`file://${__dirname}/add.html`);
 }
 
 const menuTemplate = [{
     label: 'File',
     submenu: [
-        { label: 'New Todo'},
+        { 
+            label: 'New List Item',
+            click(){
+                createAddWindow();
+            }
+        },
         {
             label: 'Quit',
             accelerator: process.platform === 'darwin' ? 'Command+Q': 'Ctrl+Q',
