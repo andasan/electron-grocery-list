@@ -48,6 +48,12 @@ const menuTemplate = [{
             }
         },
         {
+            label: 'Clear Grocery List',
+            click(){
+                mainWindow.webContents.send('tobuy:clear');
+            }
+        },
+        {
             label: 'Quit',
             accelerator: process.platform === 'darwin' ? 'Command+Q': 'Ctrl+Q',
             click(){

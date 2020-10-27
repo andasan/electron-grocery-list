@@ -6,7 +6,8 @@
 <body>
     <form>
         <div>
-            <input placeholder="Enter the item" autofocus/>
+            <label>Enter item to buy: </label>
+            <input autofocus/>
         </div>
         <button type="submit">Add</button>
     </form>
@@ -15,7 +16,7 @@
         const {ipcRenderer} = electron;
         document.querySelector('form').addEventListener('submit', (event) => {
             event.preventDefault();
-            const {value} = document.querySelector('input').value;
+            const {value} = document.querySelector('input');
             ipcRenderer.send('tobuy:add', value);
         })
     </script>
