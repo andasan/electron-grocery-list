@@ -1,4 +1,5 @@
 const electron = require('electron');
+const { ipcMain } = require('electron/main');
 
 const { app, BrowserWindow, Menu } = electron;
 
@@ -28,7 +29,14 @@ function createAddWindow(){
         }
     });
     addWindow.loadURL(`file://${__dirname}/add.html`);
+    addWindow.on('closed', () => addWindow = null);
 }
+
+ipcMain.on('tobuy:add', (event, tobuy) => {
+    mainWindow.webContents.send('tobuy:add', tobuy);
+    addWindow.close();
+    // addWindow = null;
+});
 
 const menuTemplate = [{
     label: 'File',
@@ -57,6 +65,7 @@ if(process.env.NODE_ENV !== 'production'){
     menuTemplate.push({
         label: 'View',
         submenu: [
+            { role: 'reload' },
             {
                 label: 'Toggle Developer Tools',
                 accelerator: process.platform === 'darwin' ? 'Command+Alt+I' : 'Ctrl+Shift+I',
